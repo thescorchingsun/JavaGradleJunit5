@@ -1,5 +1,7 @@
 package tests;
 
+import models.Cat;
+import models.LateInitExample;
 import models.People;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -66,6 +68,18 @@ public class SimpleTests {
     public void letterAInNameUseConstructorTest(People people) {
         System.out.println(people.getName() + " " + people.getAge() + " " + people.getGender());
         Assertions.assertTrue(people.getName().contains("a"));
+    }
+
+    @Test
+    public void printCatCheckLombokTest() {
+        Cat cat = new Cat("Pushok", "Egypt");
+        System.out.println(cat);
+    }
+
+    @Test
+    public void countTest() {
+        LateInitExample initExample = new LateInitExample();
+        System.out.println(initExample.getPeopleCount());
     }
 
     @AfterEach
